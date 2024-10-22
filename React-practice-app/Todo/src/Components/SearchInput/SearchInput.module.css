@@ -1,0 +1,8 @@
+/* SearchInput.module.css */
+.searchInput {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

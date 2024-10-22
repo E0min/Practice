@@ -1,0 +1,103 @@
+.topster-grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  padding-top: 0px;
+}
+
+.grid-and-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.topster-grid {
+  display: grid;
+  gap: 1px;
+}
+
+.topster-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.topster-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.topster-grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-cell {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.grid-cell .track-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-cell .track-item .grid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.capture-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #1DB954;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.capture-button:hover {
+  background-color: #1ED760;
+}
+
+.capture-area {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.selected-tracks-list {
+  display: flex;
+  font-size: 10px;
+  font-weight: bold;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+  width: 30%;
+}
+
+.selected-tracks-list h2 {
+  margin-bottom: 10px;
+}
+
+.selected-tracks-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.selected-tracks-list li {
+  margin-bottom: 1px;
+  padding: 2px 2px;
+}
