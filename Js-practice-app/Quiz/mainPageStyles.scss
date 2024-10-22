@@ -1,0 +1,46 @@
+.html {
+    margin:0px;
+    padding:0px;
+}
+.body{
+    margin:0px;
+    padding:0px;
+
+}
+
+.main{
+    margin:0px;
+    padding:0px;
+    display: flex;
+    justify-content: center;
+}
+#quiz-section{
+    
+    margin:24px;
+    box-sizing: border-box; /* padding과 border를 포함한 크기 */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap:50px;
+    .quiz{
+        margin:0px;
+        background-color: rgb(205, 207, 207);
+        width: 300px;
+        height: 200px;
+        cursor:pointer;
+
+        .quiz-title{
+            margin:20px;
+        }
+        .quiz-content{
+            margin:20px;
+        }
+        &:hover{
+            transition: box-shadow 50ms cubic-bezier(0.350, 0.530, 0.630, 0.150); /* custom */
+            box-shadow: 3px 3px 30px 5px #0000003d;
+        }
+    }
+
+}
