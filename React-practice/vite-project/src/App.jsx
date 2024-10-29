@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { useState, useRef, useEffect } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [form, setForm] = useState({
+    name: "",
+    birth: "",
+    country: "",
+  });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  useEffect(() => {
+    console.dir(`${form.name}`);
+  }, [form.name]);
   return (
-    <>
+    <div>
+      <h1>{form.name}</h1>
+      <h1>{form.birth}</h1>
+      <h1>{form.country}</h1>
+
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <input
+          type="text"
+          name="name"
+          placeholder="이름"
+          onChange={handleChange}
+          value={form.name}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div>
+        <input
+          type="text"
+          name="birth"
+          placeholder="생일"
+          onChange={handleChange}
+          value={form.birth}
+        />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div>
+        <select name="country" value={form.country} onChange={handleChange}>
+          <option value="한국">한국</option>
+          <option value="미국">미국</option>
+          <option value="영국">영국</option>
+        </select>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
