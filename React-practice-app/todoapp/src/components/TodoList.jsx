@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 
-const TodoList = ({ list, deleteTodoItem, updateTodoItem, toggleEditMode }) => {
+const TodoList = ({ todoList, onDeleteTodo, onUpdateTodo, onToggleEdit }) => {
   const [editContent, setEditContent] = useState("");
 
   const handleEditChange = (event) => {
     setEditContent(event.target.value);
   };
 
-  const saveUpdate = (index) => {
-    updateTodoItem(index, editContent);
-    setEditContent("");
+  const handleSaveUpdate = (index) => {
+    onUpdateTodo(index, editContent); // Update todo item content
+    setEditContent(""); // Reset edit content input
   };
 
   return (
     <div>
-      {Array.isArray(list) &&
-        list.map((item, index) => (
+      {Array.isArray(todoList) &&
+        todoList.map((item, index) => (
           <div key={index}>
             {item.isEditing ? (
               <>
@@ -25,13 +25,13 @@ const TodoList = ({ list, deleteTodoItem, updateTodoItem, toggleEditMode }) => {
                   onChange={handleEditChange}
                   placeholder={item.content}
                 />
-                <button onClick={() => saveUpdate(index)}>저장</button>
+                <button onClick={() => handleSaveUpdate(index)}>저장</button>
               </>
             ) : (
               <>
                 {item.content}
-                <button onClick={() => toggleEditMode(index)}>수정하기</button>
-                <button onClick={() => deleteTodoItem(index)}>삭제하기</button>
+                <button onClick={() => onToggleEdit(index)}>수정하기</button>
+                <button onClick={() => onDeleteTodo(index)}>삭제하기</button>
               </>
             )}
           </div>

@@ -1,21 +1,25 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import CreateTodoList from "./components/CreateTodoList";
+import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 
 function App() {
+  // State for managing the list of todos
   const [todoList, setTodoList] = useState([]);
 
-  const addTodoItem = (content) => {
+  // Handler to add a new todo item
+  const handleAddTodo = (content) => {
     setTodoList([...todoList, { content, isEditing: false }]);
   };
 
-  const deleteTodoItem = (index) => {
+  // Handler to delete a todo item by index
+  const handleDeleteTodo = (index) => {
     setTodoList(todoList.filter((_, i) => i !== index));
   };
 
-  const updateTodoItem = (index, newContent) => {
+  // Handler to update the content of a todo item
+  const handleUpdateTodo = (index, newContent) => {
     const updatedList = [...todoList];
     updatedList[index] = {
       ...updatedList[index],
@@ -25,7 +29,8 @@ function App() {
     setTodoList(updatedList);
   };
 
-  const toggleEditMode = (index) => {
+  // Handler to toggle the edit mode for a todo item
+  const handleToggleEdit = (index) => {
     setTodoList(
       todoList.map((item, i) =>
         i === index ? { ...item, isEditing: !item.isEditing } : item
@@ -35,13 +40,13 @@ function App() {
 
   return (
     <>
-      <Header /> {/* 현재 날짜와 시간을 표시 */}
-      <CreateTodoList addTodoItem={addTodoItem} />
+      <Header /> {/* Display current date */}
+      <TodoInput onAddTodo={handleAddTodo} />
       <TodoList
-        list={todoList}
-        deleteTodoItem={deleteTodoItem}
-        updateTodoItem={updateTodoItem}
-        toggleEditMode={toggleEditMode}
+        todoList={todoList}
+        onDeleteTodo={handleDeleteTodo}
+        onUpdateTodo={handleUpdateTodo}
+        onToggleEdit={handleToggleEdit}
       />
     </>
   );

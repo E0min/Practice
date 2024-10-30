@@ -1,11 +1,11 @@
 import { useRef } from "react";
 
-const CreateTodoList = ({ addTodoItem }) => {
+const TodoInput = ({ onAddTodo }) => {
   const inputRef = useRef();
 
   const handleButtonClick = () => {
-    addTodoItem(inputRef.current.value);
-    inputRef.current.value = "";
+    onAddTodo(inputRef.current.value);
+    inputRef.current.value = ""; // Clear input after adding
   };
 
   return (
@@ -16,4 +16,4 @@ const CreateTodoList = ({ addTodoItem }) => {
   );
 };
 
-export default CreateTodoList;
+export default TodoInput;
