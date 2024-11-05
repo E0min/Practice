@@ -1,35 +1,14 @@
-import React, { useReducer } from "react";
-
-function reducer(state, action) {
-  switch(action.type){
-    case "plus":
-      return state+1;
-    case "minus":
-      return state-1;
-  }
- 
-}
+// App.js
+import React, { useState } from "react";
+import "./App.css";
+import MarketList from "./components/MarketList";
 
 function App() {
-  const [count,dispatch] = useReducer(reducer,0);
-
-  const onCountUp = ()=>{
-    dispatch({type:"plus"});
-  }
-
-  const onCountDown = ()=>{
-    dispatch({type:"minus"});
-  }
-
-  return(
-    <>
-    <h1>{count}</h1>
-    <button onClick={onCountUp}>+</button>
-    <button onClick={onCountDown}>-</button>
-
-    </>
-  )
-    
+  return (
+    <div>
+      <MarketList />
+    </div>
+  );
 }
 
 export default App;
