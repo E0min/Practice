@@ -7,7 +7,6 @@ import FilterOptions from "./components/FilterOptions";
 
 function App() {
   const [search, setSearch] = useState("");
-
   const [filters, setFilters] = useState({
     TRADING_VOLUME_SOARING: false,
     CONCENTRATION_OF_SMALL_ACCOUNTS: false,
