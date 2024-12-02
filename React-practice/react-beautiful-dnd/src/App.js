@@ -32,7 +32,7 @@ const App = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="droppable">
+      <Droppable droppableId="droppable"> 
         {(provided) => (
           <div
             ref={provided.innerRef}
